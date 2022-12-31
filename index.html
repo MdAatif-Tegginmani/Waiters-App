@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waiters list </title>
+</head>
+<body>
+
+    <div class="continer">
+        <h1>Order Menu</h1>
+        <label >Choose price</label> 
+        <input type="number" id="amount"><br>
+        <br>
+        <label>Choose Dish :</label> 
+        <input type="text" id="dish"> <br>
+        <br>
+        
+        <label >Choose a Table:</label> 
+        <select    id="tab"> <br>
+            <option>Table 1</option>
+            <option>Table 2</option>
+            <option>Table 3</option>
+<br>
+<input class="btn" type="button" value="Add to bill" onclick="savetoLocalstorage(event)">
+
+<ul id="ul">
+    <h2>Orders</h2>
+    
+
+    
+</ul>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
+<script src="index.js"></script>
+
+    
+</body>
+</html>
