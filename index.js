@@ -1,4 +1,4 @@
-const url = "https://crudcrud.com/api/49d1573c69714541998de9e55d79698d/data"
+const url = "https://crudcrud.com/api/df438f2cb43d400fbe27a201dd6d57c8/data"
 
 
 
@@ -73,21 +73,42 @@ window.addEventListener(`DOMContentLoaded`, async () => {
     try {
         const response = await axios.get(url)
         console.log(response.data)
-        const d = document.getElementById(`ul`);
-        let li = ""
-       
+        let li1 = ""
+        let li2 =""
+        let li3 = ""
+        const table1=document.getElementById('Table1')
+        const table2=document.getElementById('Table2')
+        const table3=document.getElementById('Table3')
 
-        for (let i = 0; i < response.data.length; i++) {
-            li += `<h3>${response.data[i].table}</h3><li id="${response.data[i].My_Amount}"> ${response.data[i].My_Amount},${response.data[i].Description}
-            <button onclick = deleteUser('${response.data[i]._id}')> Delete </button> 
-            </li>`
+            for (let i = 0; i < response.data.length; i++) {
+                if (response.data[i].table=="Table 1") {
+                    li1 += `<li id="${response.data[i].My_Amount}"> ${response.data[i].My_Amount},${response.data[i].Description}
+                    <button onclick = deleteUser('${response.data[i]._id}')> Delete </button> 
+                    </li>`
+                }
+                 
+                if (response.data[i].table=="Table 2") {
+                    li2 += `<li id="${response.data[i].My_Amount}"> ${response.data[i].My_Amount},${response.data[i].Description}
+                    <button onclick = deleteUser('${response.data[i]._id}')> Delete </button> 
+                    </li>`
+                }
+                if (response.data[i].table=="Table 3") {
+                    li3 += `<li id="${response.data[i].My_Amount}"> ${response.data[i].My_Amount},${response.data[i].Description}
+                    <button onclick = deleteUser('${response.data[i]._id}')> Delete </button> 
+                    </li>`
+                }
+                
+            }
+                    
+           table1.innerHTML = li1 ;
+           table2.innerHTML = li2 ;
+           table3.innerHTML = li3 ;
             
-           
-            d.innerHTML =  li
 
-        }
 
     }
+
+
     catch (error) {
         console.log(error);
     }
